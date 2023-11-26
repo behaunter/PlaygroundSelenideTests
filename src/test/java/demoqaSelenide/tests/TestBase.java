@@ -18,17 +18,15 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
-        System.out.println("зашел в сетап");
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
         );
-        System.out.println("прошел аллюр");
+
         Configuration.timeout = 10000;
         Configuration.browserSize = "1920x1080";
         open("http://uitestingplayground.com");
-        System.out.println("Запустил сайт");
 
         }
 
