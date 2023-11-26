@@ -18,30 +18,24 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
-        try {
-            URL url = new URL("https://www.google.de/?hl=de");
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            connection.setRequestMethod("GET");
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println("зашел в сетап");
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
         );
-
+        System.out.println("прошел аллюр");
         Configuration.timeout = 10000;
         Configuration.browserSize = "1920x1080";
         open("http://uitestingplayground.com");
+        System.out.println("Запустил сайт");
 
         }
 
         @AfterMethod
         public void tearDown () {
             Selenide.closeWebDriver();
+            System.out.println("закрыл сайт");
         }
     }
 
