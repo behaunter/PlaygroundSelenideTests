@@ -23,7 +23,7 @@ public class TestBase {
                 .screenshots(true)
                 .savePageSource(true)
         );
-
+        Configuration.browser = "chrome";
         Configuration.timeout = 10000;
         Configuration.browserSize = "1920x1080";
         open("http://uitestingplayground.com");
@@ -33,7 +33,7 @@ public class TestBase {
         @AfterMethod
         public void tearDown () {
             Selenide.closeWebDriver();
-            System.out.println("закрыл сайт");
+
         }
     }
 
